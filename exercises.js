@@ -37,15 +37,33 @@ function expect(target) {
 //
 // Only add code to *THIS* section!
 
-var Dog = function(){
+var Dog = function(attributes){
   this.color = 'black',
   this.status = 'normal',
   this.owner = null,
-  this.hungry = true
+  this.hungry = false
+
+if (attributes === undefined){
+  attributes = {};
+}
+
+if (attributes.hungry === undefined)
+{
+  this.hungry = true;
+}
 };
 
-var Human = function(){
+var Human = function(attributes){
   this.cool = true
+
+if (attributes === undefined){
+  attributes = {};
+}
+
+if (attributes.cool === undefined){
+  this.cool = false;
+}
+
 };
 
 Human.prototype.pet = function(Dog){
@@ -55,8 +73,6 @@ Human.prototype.pet = function(Dog){
 Human.prototype.feed = function(Dog){
   Dog.hungry = false;
 };
-
-
 
 //        __
 //   ____/ /___  ____ ______
